@@ -1,0 +1,16 @@
+{
+  "name": "Web Snippets",
+  "version": "0.0",
+  "permissions": ["tabs", "contextMenus"],
+  "icons": { "48": "icons/48.png", "96": "icons/96.png" },
+  "background": {
+    "scripts": ["background/main.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/main.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+.env.*
+
+# Node.js
+node_modules
+dist
+dist_modal
+
+# OS
+.DS_Store

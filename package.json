@@ -1,0 +1,29 @@
+{
+  "name": "web-snippets",
+  "private": true,
+  "version": "0.0.0",
+  "description": "A collection of useful JavaScript snippets",
+  "type": "module",
+  "scripts": {
+    "modal:dev": "vite",
+    "modal:build": "vite build",
+    "prepare:firefox": "node ./scripts/prepare.js firefox",
+    "prepare:chrome": "node ./scripts/prepare.js chrome",
+    "prepare": "node ./scripts/prepare.js",
+    "zip": "node ./scripts/zip.js"
+  },
+  "author": "Dylan Greene",
+  "license": "ISC",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.4",
+    "archiver": "^6.0.1",
+    "autoprefixer": "^10.4.15",
+    "classnames": "^2.3.2",
+    "fs-extra": "^11.1.1",
+    "postcss": "^8.4.29",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.3",
+    "vite": "^4.4.9"
+  }
+}
