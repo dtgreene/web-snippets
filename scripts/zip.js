@@ -1,6 +1,5 @@
 import fs from 'fs-extra';
 import archiver from 'archiver';
-
 import { readJSON } from './utils.js';
 
 if (!fs.pathExistsSync('dist')) {

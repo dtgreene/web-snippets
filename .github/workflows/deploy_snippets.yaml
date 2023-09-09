@@ -13,5 +13,25 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-      
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install awscli
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install npm dependencies
+        run: npm install --only=prod
+      - name: Create snippets
+        run: node ./scripts/createSnippets.js
+      - name: Upload snippets
+        with:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: us-east-1
+        run: aws s3 cp ./snippets.json s3://team-thundercats/snippets.json
+
+
+
 

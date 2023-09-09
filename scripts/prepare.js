@@ -1,10 +1,9 @@
 import fs from 'fs-extra';
-
 import { readJSON } from './utils.js';
 
 const commonManifest = readJSON('src/manifests/manifest.json');
 
-if (!fs.pathExistsSync('dist_modal')) {
+if (!fs.existsSync('dist_modal')) {
   console.log(
     'dist_modal/ directory not found; run "npm run modal:build" first'
   );
@@ -15,7 +14,7 @@ const args = process.argv.slice(2);
 const browserArg = args[0];
 
 // Setup dist directory
-if (fs.pathExistsSync('dist')) {
+if (fs.existsSync('dist')) {
   fs.readdirSync('dist').forEach((file) => {
     fs.rmSync(`dist/${file}`, { recursive: true });
   });
