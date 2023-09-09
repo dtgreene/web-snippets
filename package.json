@@ -9,7 +9,7 @@
     "modal:build": "vite build",
     "prepare:firefox": "node ./scripts/prepare.js firefox",
     "prepare:chrome": "node ./scripts/prepare.js chrome",
-    "prepare": "node ./scripts/prepare.js",
+    "prepare:all": "node ./scripts/prepare.js",
     "zip": "node ./scripts/zip.js"
   },
   "author": "Dylan Greene",
