@@ -1,6 +1,11 @@
-import { getClickupChecklist } from './getClickupChecklist';
 import { SnippetID } from '../shared';
+import { getClickupChecklist } from './getClickupChecklist';
+import { clearLocalStorage } from './clearLocalStorage';
 
+const snippetMap = {
+  [SnippetID.GET_CLICK_UP_CHECKLISTS]: getClickupChecklist,
+  [SnippetID.CLEAR_LOCAL_STORAGE]: clearLocalStorage,
+};
 const extension = typeof browser === 'undefined' ? chrome : browser;
 // Begin listening for extension messages
 extension.runtime.onMessage.addListener(handleRuntimeMessage);
@@ -13,14 +18,10 @@ function handleRuntimeMessage(message, _, sendResponse) {
       const response = { type: 'run_result', payload: null };
 
       try {
-        switch (id) {
-          case SnippetID.GET_CLICK_UP_CHECKLISTS: {
-            response.payload = getClickupChecklist();
-            break;
-          }
-          default: {
-            response.payload = `Unknown snippet id: ${id}`;
-          }
+        if (snippetMap[id]) {
+          response.payload = snippetMap[id]();
+        } else {
+          response.payload = `Unknown snippet id: ${id}`;
         }
       } catch (error) {
         response.payload = `An error occurred: ${error}`;

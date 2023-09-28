@@ -38,5 +38,5 @@ export function getClickupChecklist() {
     }, [])
     .join('\n');
 
-  return result;
+  return result || 'No checklist items found.';
 }

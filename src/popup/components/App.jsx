@@ -14,6 +14,11 @@ const snippetList = [
     description: 'Gets ClickUp ticket checklist as GitHub markdown.',
     id: SnippetID.GET_CLICK_UP_CHECKLISTS,
   },
+  {
+    label: 'ClearLocalStorage',
+    description: 'Clears all local storage items.',
+    id: SnippetID.CLEAR_LOCAL_STORAGE,
+  },
 ];
 const extension = typeof browser === 'undefined' ? chrome : browser;
 
