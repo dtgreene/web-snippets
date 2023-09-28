@@ -1,4 +1,4 @@
-(() => {
+export function getClickupChecklist() {
   const rows = [];
   const prefix = '- [ ] - ';
   const checkList = document.querySelectorAll('cu-checklist');
@@ -38,9 +38,5 @@
     }, [])
     .join('\n');
 
-  if (result.length > 0) {
-    navigator.clipboard.writeText(result);
-  } else {
-    console.warn('[web-snippets]: Could not find any ClickUp checklist items.');
-  }
-})();
+  return result;
+}

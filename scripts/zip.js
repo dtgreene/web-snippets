@@ -1,11 +1,10 @@
-import fs from 'fs-extra';
+import { existsSync, createWriteStream } from 'node:fs';
 import archiver from 'archiver';
-import { readJSON } from './utils.js';
 
-if (!fs.pathExistsSync('dist')) {
-  console.log(
-    'dist/ directory not found; run "npm run prepare" first'
-  );
+import { readJSON } from './fileUtils.js';
+
+if (!existsSync('dist')) {
+  console.log('dist/ directory not found; run "npm run prepare:all" first');
   process.exit(1);
 }
 
@@ -15,7 +14,7 @@ zipExtension('chrome');
 zipExtension('firefox');
 
 function zipExtension(name) {
-  const output = fs.createWriteStream(`dist/${name}-${manifest.version}.zip`);
+  const output = createWriteStream(`dist/${name}-${manifest.version}.zip`);
   const archive = archiver('zip', {
     zlib: { level: 9 },
   });

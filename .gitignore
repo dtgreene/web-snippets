@@ -3,7 +3,7 @@
 # Node.js
 node_modules
 dist
-dist_modal
+vite_dist
 snippets.json
 
 # OS

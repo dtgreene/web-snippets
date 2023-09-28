@@ -5,17 +5,17 @@
   "description": "A collection of useful JavaScript snippets",
   "type": "module",
   "scripts": {
-    "modal:dev": "vite",
-    "modal:build": "vite build",
-    "prepare:firefox": "node ./scripts/prepare.js firefox",
-    "prepare:chrome": "node ./scripts/prepare.js chrome",
-    "prepare:all": "node ./scripts/prepare.js",
+    "dev": "vite --config .vite/popup.config.js",
+    "build": "node ./scripts/build.js",
+    "copy:firefox": "node ./scripts/copy.js firefox",
+    "copy:chrome": "node ./scripts/copy.js chrome",
+    "copy": "node ./scripts/copy.js",
     "zip": "node ./scripts/zip.js"
   },
   "author": "Dylan Greene",
   "license": "ISC",
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.0.4",
+    "@vitejs/plugin-react": "^4.1.0",
     "archiver": "^6.0.1",
     "autoprefixer": "^10.4.15",
     "classnames": "^2.3.2",
@@ -26,6 +26,6 @@
     "vite": "^4.4.9"
   },
   "dependencies": {
-    "fs-extra": "^11.1.1"
+    "immer": "^10.0.2"
   }
 }
